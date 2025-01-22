@@ -47,7 +47,7 @@ Run
 ```console
 python train.py
 ```
-This will dump `data.pth` (Delete file if it exist) file. And then run
+This will dump `data.pth` (delete existing file if it doesn't work) file. And then run
 ```console
 python chat.py
 ```
