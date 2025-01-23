@@ -26,5 +26,3 @@ def bag_of_words(tokenized_sentence, all_words):
             bag[idx] = 1.0
 
     return bag
-
-# https://www.youtube.com/watch?v=k1SzvvFtl4w&list=PLqnslRFeH2UrFW4AUgn-eY37qOAWQpJyg&index=4
