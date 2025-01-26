@@ -79,6 +79,50 @@
         "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
         "What did the buffalo say when his son left for college? Bison."
       ]
+    },
+    {
+      "tag": "illness",
+      "patterns": [
+        "I'm feeling sick.",
+        "I have a cold.",
+        "I think I have the flu.",
+        "I'm not feeling well.",
+        "What should I do if I'm sick?"
+      ],
+      "responses": [
+        "I'm sorry you're feeling sick. It's always good to rest and drink plenty of fluids. If it's serious, you should consult a doctor.",
+        "Take care of yourself and get well soon! Rest, hydrate, and see a doctor if necessary.",
+        "If you feel like you have the flu, it might be best to stay in bed and avoid contact with others. A healthcare professional will give you the best advice.",
+        "I hope you feel better soon! Drink warm fluids and rest to help your body recover."
+      ]
+    },
+    {
+      "tag": "symptoms",
+      "patterns": [
+        "What are the symptoms of a cold?",
+        "What are flu symptoms?",
+        "How can I tell if it's just a cold or the flu?",
+        "What should I do if I have a sore throat and fever?"
+      ],
+      "responses": [
+        "Common cold symptoms include a runny nose, sore throat, cough, and sometimes a mild fever. The flu typically has more severe symptoms like high fever, body aches, and fatigue.",
+        "If you have a sore throat and fever, it could be a sign of an infection like strep throat or the flu. It's a good idea to visit a doctor.",
+        "Flu symptoms can be more intense than a cold and often include high fever, chills, body aches, and extreme fatigue. A cold usually involves less severe symptoms.",
+        "If you're experiencing fever, sore throat, and fatigue, it may be worth consulting a healthcare professional to determine the cause."
+      ]
+    },
+    {
+      "tag": "prevention",
+      "patterns": [
+        "How can I prevent catching a cold?",
+        "What should I do to avoid getting sick?",
+        "How can I prevent the flu?"
+      ],
+      "responses": [
+        "To prevent getting sick, wash your hands regularly, avoid close contact with sick people, and get enough rest.",
+        "Eating healthy foods, staying hydrated, and maintaining good hygiene are key to preventing illness.",
+        "The best way to prevent the flu is by getting vaccinated and practicing good hygiene, like frequent hand washing and avoiding touching your face."
+      ]
     }
   ]
 }
