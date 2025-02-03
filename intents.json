@@ -8,88 +8,39 @@
         "How are you",
         "Is anyone there?",
         "Hello",
-        "Good day",
-
-        "Привет",
-        "Здравствуй",
-        "Как дела?",
-        "Кто-нибудь там?",
-        "Приветствую",
-        "Хорошего дня"
+        "Good day"
       ],
       "responses": [
         "Hey :-)",
         "Hello, thanks for visiting",
         "Hi there, what can I do for you?",
-        "Hi there, how can I help?",
-
-        "Привет :-)",
-        "Здравствуйте, спасибо за визит",
-        "Привет! Чем могу помочь?",
-        "Привет, как я могу помочь?"
+        "Hi there, how can I help?"
       ]
     },
     {
       "tag": "goodbye",
-      "patterns": [
-        "Bye",
-        "See you later",
-        "Goodbye",
-
-        "Пока",
-        "Увидимся",
-        "До свидания"
-      ],
+      "patterns": ["Bye", "See you later", "Goodbye"],
       "responses": [
         "See you later, thanks for visiting",
         "Have a nice day",
-        "Bye! Come back again soon.",
-
-        "Увидимся, спасибо за визит",
-        "Хорошего дня",
-        "Пока! Возвращайтесь скоро."
+        "Bye! Come back again soon."
       ]
     },
     {
       "tag": "thanks",
-      "patterns": [
-        "Thanks",
-        "Thank you",
-        "That's helpful",
-        "Thank's a lot!",
-
-        "Спасибо",
-        "Благодарю",
-        "Это полезно",
-        "Большое спасибо!"
-      ],
-      "responses": [
-        "Happy to help!",
-        "Any time!",
-        "My pleasure",
-
-        "Рад был помочь!",
-        "Всегда рад!",
-        "Пожалуйста!"
-      ]
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to help!", "Any time!", "My pleasure"]
     },
     {
       "tag": "items",
       "patterns": [
         "Which items do you have?",
         "What kinds of items are there?",
-        "What do you sell?",
-
-        "Какие товары у вас есть?",
-        "Какие виды товаров у вас есть?",
-        "Что вы продаете?"
+        "What do you sell?"
       ],
       "responses": [
         "We sell coffee and tea",
-        "We have coffee and tea",
-
-        "Мы продаем кофе и чай.",
-        "У нас есть кофе и чай."
+        "We have coffee and tea"
       ]
     },
     {
@@ -98,19 +49,11 @@
         "Do you take credit cards?",
         "Do you accept Mastercard?",
         "Can I pay with Paypal?",
-        "Are you cash only?",
-
-        "Вы принимаете кредитные карты?",
-        "Вы принимаете Mastercard?",
-        "Могу ли я заплатить через PayPal?",
-        "Только наличные?"
+        "Are you cash only?"
       ],
       "responses": [
         "We accept VISA, Mastercard and Paypal",
-        "We accept most major credit cards, and Paypal",
-
-        "Мы принимаем VISA, Mastercard и PayPal.",
-        "Мы принимаем большинство крупных кредитных карт и PayPal."
+        "We accept most major credit cards, and Paypal"
       ]
     },
     {
@@ -118,18 +61,11 @@
       "patterns": [
         "How long does delivery take?",
         "How long does shipping take?",
-        "When do I get my delivery?",
-
-        "Сколько времени занимает доставка?",
-        "Как долго длится доставка?",
-        "Когда я получу свою доставку?"
+        "When do I get my delivery?"
       ],
       "responses": [
         "Delivery takes 2-4 days",
-        "Shipping takes 2-4 days",
-
-        "Доставка занимает от 2 до 4 дней.",
-        "Доставка занимает от 2 до 4 дней."
+        "Shipping takes 2-4 days"
       ]
     },
     {
@@ -137,18 +73,11 @@
       "patterns": [
         "Tell me a joke!",
         "Tell me something funny!",
-        "Do you know a joke?",
-
-        "Расскажи анекдот!",
-        "Расскажи что-нибудь смешное!",
-        "Знаешь анекдот?"
+        "Do you know a joke?"
       ],
       "responses": [
         "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
-        "What did the buffalo say when his son left for college? Bison.",
-
-        "Почему хипстер обжег язык? Он выпил кофе до того, как он остыл.",
-        "Что сказал бизон, когда его сын уехал в колледж? Бизон."
+        "What did the buffalo say when his son left for college? Bison."
       ]
     },
 
@@ -159,24 +88,13 @@
         "I have a cold.",
         "I think I have the flu.",
         "I'm not feeling well.",
-        "What should I do if I'm sick?",
-
-        "Я болен.",
-        "У меня простуда.",
-        "Думаю, у меня грипп.",
-        "Мне не хорошо.",
-        "Что делать, если я болен?"
+        "What should I do if I'm sick?"
       ],
       "responses": [
         "I'm sorry you're feeling sick. It's always good to rest and drink plenty of fluids. If it's serious, you should consult a doctor.",
         "Take care of yourself and get well soon! Rest, hydrate, and see a doctor if necessary.",
         "If you feel like you have the flu, it might be best to stay in bed and avoid contact with others. A healthcare professional will give you the best advice.",
-        "I hope you feel better soon! Drink warm fluids and rest to help your body recover.",
-
-        "Извините, что вам плохо. Лучше отдохните и пейте побольше жидкости. Если серьезно, обратитесь к врачу.",
-        "Берегите себя и выздоравливайте! Отдыхайте, пейте много жидкости и при необходимости обратитесь к врачу.",
-        "Если у вас грипп, лучше оставаться в постели и избегать контактов с другими людьми. Лучший совет вам даст врач.",
-        "Надеюсь, вы скоро поправитесь! Пейте теплые жидкости и отдыхайте, чтобы помочь организму восстановиться."
+        "I hope you feel better soon! Drink warm fluids and rest to help your body recover."
       ]
     },
     {
@@ -185,23 +103,13 @@
         "What are the symptoms of a cold?",
         "What are flu symptoms?",
         "How can I tell if it's just a cold or the flu?",
-        "What should I do if I have a sore throat and fever?",
-
-        "Какие симптомы простуды?",
-        "Какие симптомы гриппа?",
-        "Как понять, простуда ли это или грипп?",
-        "Что делать, если у меня больное горло и температура?"
+        "What should I do if I have a sore throat and fever?"
       ],
       "responses": [
         "Common cold symptoms include a runny nose, sore throat, cough, and sometimes a mild fever. The flu typically has more severe symptoms like high fever, body aches, and fatigue.",
         "If you have a sore throat and fever, it could be a sign of an infection like strep throat or the flu. It's a good idea to visit a doctor.",
         "Flu symptoms can be more intense than a cold and often include high fever, chills, body aches, and extreme fatigue. A cold usually involves less severe symptoms.",
-        "If you're experiencing fever, sore throat, and fatigue, it may be worth consulting a healthcare professional to determine the cause.",
-
-        "Симптомы простуды включают насморк, боль в горле, кашель и иногда легкую температуру. Грипп обычно имеет более тяжелые симптомы, такие как высокая температура, ломота в теле и усталость.",
-        "Если у вас болит горло и температура, это может быть признаком инфекции, например, ангины или гриппа. Лучше обратиться к врачу.",
-        "Симптомы гриппа могут быть более интенсивными, чем у простуды, и обычно включают высокую температуру, озноб, боли в теле и сильную усталость. Простуда обычно сопровождается менее выраженными симптомами.",
-        "Если у вас температура, боль в горле и усталость, возможно, стоит проконсультироваться с врачом, чтобы определить причину."
+        "If you're experiencing fever, sore throat, and fatigue, it may be worth consulting a healthcare professional to determine the cause."
       ]
     },
     {
@@ -209,20 +117,12 @@
       "patterns": [
         "How can I prevent catching a cold?",
         "What should I do to avoid getting sick?",
-        "How can I prevent the flu?",
-
-        "Как предотвратить простуду?",
-        "Что делать, чтобы не заболеть?",
-        "Как предотвратить грипп?"
+        "How can I prevent the flu?"
       ],
       "responses": [
         "To prevent getting sick, wash your hands regularly, avoid close contact with sick people, and get enough rest.",
         "Eating healthy foods, staying hydrated, and maintaining good hygiene are key to preventing illness.",
-        "The best way to prevent the flu is by getting vaccinated and practicing good hygiene, like frequent hand washing and avoiding touching your face.",
-
-        "Чтобы не заболеть, часто мойте руки, избегайте близкого контакта с больными людьми и достаточно отдыхайте.",
-        "Здоровое питание, поддержание водного баланса и хорошая гигиена – ключевые меры профилактики.",
-        "Лучший способ предотвратить грипп – это прививка и соблюдение хорошей гигиены, например, частое мытье рук и избегание прикосновений к лицу."
+        "The best way to prevent the flu is by getting vaccinated and practicing good hygiene, like frequent hand washing and avoiding touching your face."
       ]
     },
 
@@ -233,20 +133,11 @@
         "What kinds of toys are there?",
         "Do you sell dog toys?",
         "Do you have cat toys?",
-        "What do you sell for pets?",
-
-        "Какие игрушки у вас есть?",
-        "Какие виды игрушек у вас есть?",
-        "У вас есть игрушки для собак?",
-        "У вас есть игрушки для кошек?",
-        "Что вы продаете для питомцев?"
+        "What do you sell for pets?"
       ],
       "responses": [
         "We have chew toys, squeaky toys, balls, and interactive toys for dogs. For cats, we have feather wands, catnip toys, and scratching posts.",
-        "Our store offers a wide variety of toys for dogs, cats, and even small animals like rabbits or hamsters.",
-
-        "У нас есть игрушки для собак: жевательные, пищалки, мячики и интерактивные игрушки. Для кошек у нас есть перьевые палочки, игрушки с кошачьей мятой и когтеточки.",
-        "В нашем магазине широкий выбор игрушек для собак, кошек и даже мелких животных, таких как кролики или хомяки."
+        "Our store offers a wide variety of toys for dogs, cats, and even small animals like rabbits or hamsters."
       ]
     },
     {
@@ -255,21 +146,12 @@
         "What toy do you recommend for a puppy?",
         "Can you suggest a toy for my cat?",
         "What is the best toy for small dogs?",
-        "Do you have toys for energetic pets?",
-
-        "Какая игрушка подходит для щенка?",
-        "Можете посоветовать игрушку для моей кошки?",
-        "Какая лучшая игрушка для мелких собак?",
-        "У вас есть игрушки для энергичных питомцев?"
+        "Do you have toys for energetic pets?"
       ],
       "responses": [
         "For puppies, we recommend soft chew toys or teething rings. For energetic cats, try interactive feather wands or catnip balls.",
         "Energetic pets love toys that challenge them, like puzzle toys or fetch balls.",
-        "For small dogs, squeaky toys or soft plush toys are a great choice.",
-
-        "Для щенков рекомендуем мягкие жевательные игрушки или кольца для прорезывания зубов. Для энергичных кошек подойдут интерактивные палочки с перьями или мячики с кошачьей мятой.",
-        "Энергичным питомцам нравятся игрушки, которые их развлекают, такие как головоломки или мячики для игры в фетч.",
-        "Для мелких собак отличным выбором будут игрушки с пищалками или мягкие плюшевые игрушки."
+        "For small dogs, squeaky toys or soft plush toys are a great choice."
       ]
     },
     {
@@ -277,18 +159,11 @@
       "patterns": [
         "What are the toys made of?",
         "Are the toys safe for my pet?",
-        "Do you have non-toxic toys?",
-
-        "Из чего сделаны ваши игрушки?",
-        "Безопасны ли игрушки для моего питомца?",
-        "У вас есть нетоксичные игрушки?"
+        "Do you have non-toxic toys?"
       ],
       "responses": [
         "Our toys are made from safe, non-toxic materials and are designed to be pet-friendly.",
-        "Yes, all our toys are safe and durable, made with high-quality materials to ensure your pet's safety.",
-
-        "Наши игрушки сделаны из безопасных, нетоксичных материалов и предназначены для безопасности питомцев.",
-        "Да, все наши игрушки безопасны и долговечны, они изготовлены из высококачественных материалов для обеспечения безопасности вашего питомца."
+        "Yes, all our toys are safe and durable, made with high-quality materials to ensure your pet's safety."
       ]
     },
     {
@@ -296,18 +171,11 @@
       "patterns": [
         "How long does delivery take?",
         "Do you ship toys?",
-        "How soon can I get my order?",
-
-        "Сколько времени занимает доставка?",
-        "Вы отправляете игрушки?",
-        "Как скоро я получу мой заказ?"
+        "How soon can I get my order?"
       ],
       "responses": [
         "Delivery typically takes 2-4 days. We offer free shipping on orders over $50.",
-        "Yes, we ship toys nationwide, and delivery takes 2-4 business days.",
-
-        "Доставка обычно занимает от 2 до 4 дней. Мы предлагаем бесплатную доставку на заказы от 50 долларов.",
-        "Да, мы отправляем игрушки по всей стране, доставка занимает от 2 до 4 рабочих дней."
+        "Yes, we ship toys nationwide, and delivery takes 2-4 business days."
       ]
     },
     {
@@ -315,18 +183,11 @@
       "patterns": [
         "Tell me a joke about pets",
         "Do you know a joke about animals?",
-        "Make me laugh",
-
-        "Расскажи шутку про питомцев",
-        "Знаешь шутку про животных?",
-        "Рассмеши меня"
+        "Make me laugh"
       ],
       "responses": [
         "Why don’t cats play poker in the jungle? Too many cheetahs!",
-        "What do you call a dog that can do magic tricks? A labracadabrador!",
-
-        "Почему кошки не играют в покер в джунглях? Слишком много читеров!",
-        "Как называется собака, которая умеет делать фокусы? Лабрадоракадабра!"
+        "What do you call a dog that can do magic tricks? A labracadabrador!"
       ]
     },
 
@@ -336,19 +197,11 @@
         "What food do you have for dogs?",
         "What kind of food do you sell for cats?",
         "Do you have grain-free food?",
-        "What types of pet food do you offer?",
-
-        "Какую еду для собак вы продаете?",
-        "Какую еду вы продаете для кошек?",
-        "У вас есть еда без злаков?",
-        "Какие виды еды для питомцев у вас есть?"
+        "What types of pet food do you offer?"
       ],
       "responses": [
         "We offer dry and wet food, grain-free options, and special diets for dogs and cats.",
-        "Our selection includes premium, holistic, and veterinary diets for adult pets.",
-
-        "Мы предлагаем сухие и влажные корма, беззлаковые варианты и специальные диеты для собак и кошек.",
-        "В нашем ассортименте есть премиальные, холистические и ветеринарные диеты для взрослых питомцев."
+        "Our selection includes premium, holistic, and veterinary diets for adult pets."
       ]
     },
     {
@@ -357,21 +210,12 @@
         "What food do you recommend for adult cats?",
         "Can you suggest a good diet for my dog?",
         "What is the best food for large breed dogs?",
-        "Do you have food for sensitive stomachs?",
-
-        "Какую еду вы порекомендуете для взрослых кошек?",
-        "Можете порекомендовать хороший корм для моей собаки?",
-        "Какой корм лучше для крупных пород собак?",
-        "У вас есть еда для чувствительных желудков?"
+        "Do you have food for sensitive stomachs?"
       ],
       "responses": [
         "For adult cats, we recommend high-protein, grain-free food with natural ingredients.",
         "Large breed dogs benefit from joint-supporting diets with glucosamine and chondroitin.",
-        "For pets with sensitive stomachs, we suggest hypoallergenic or limited-ingredient diets.",
-
-        "Для взрослых кошек мы рекомендуем корм с высоким содержанием белка, без злаков, с натуральными ингредиентами.",
-        "Корм для крупных пород собак должен включать поддерживающие суставы компоненты, такие как глюкозамин и хондроитин.",
-        "Для питомцев с чувствительными желудками мы предлагаем гипоаллергенные или ограниченные по составу диеты."
+        "For pets with sensitive stomachs, we suggest hypoallergenic or limited-ingredient diets."
       ]
     },
     {
@@ -379,18 +223,11 @@
       "patterns": [
         "What are the ingredients in your pet food?",
         "Do you have food with real meat?",
-        "Is your food free from artificial additives?",
-
-        "Какие ингредиенты в вашей корме для питомцев?",
-        "У вас есть корм с настоящим мясом?",
-        "Ваш корм без искусственных добавок?"
+        "Is your food free from artificial additives?"
       ],
       "responses": [
         "Our pet food contains real meat, vegetables, and essential nutrients with no artificial preservatives.",
-        "Yes, we offer high-quality food with real chicken, beef, salmon, and lamb.",
-
-        "В нашем корме для питомцев есть настоящее мясо, овощи и важные питательные вещества без искусственных консервантов.",
-        "Да, мы предлагаем высококачественный корм с настоящим куриным, говяжьим, лососевым и ягнячим мясом."
+        "Yes, we offer high-quality food with real chicken, beef, salmon, and lamb."
       ]
     },
     {
@@ -398,20 +235,12 @@
       "patterns": [
         "How often should I feed my dog?",
         "What is the best feeding schedule for cats?",
-        "Should I feed my pet twice a day?",
-
-        "Как часто нужно кормить мою собаку?",
-        "Какой режим питания для кошек лучший?",
-        "Нужно ли кормить питомца дважды в день?"
+        "Should I feed my pet twice a day?"
       ],
       "responses": [
         "Adult dogs should be fed twice a day, while cats can eat small meals throughout the day.",
         "It's best to maintain a consistent feeding schedule to keep your pet healthy.",
-        "For specific dietary needs, consult a veterinarian.",
-
-        "Взрослых собак нужно кормить дважды в день, а кошки могут есть небольшими порциями в течение дня.",
-        "Лучше придерживаться постоянного расписания кормления для здоровья питомца.",
-        "Для специфических диетических потребностей лучше проконсультироваться с ветеринаром."
+        "For specific dietary needs, consult a veterinarian."
       ]
     },
     {
@@ -419,20 +248,12 @@
       "patterns": [
         "How can I help my dog lose weight?",
         "What food is best for overweight cats?",
-        "Do you have low-calorie pet food?",
-
-        "Как помочь моей собаке похудеть?",
-        "Какой корм лучше для собак с лишним весом?",
-        "У вас есть низкокалорийная еда для питомцев?"
+        "Do you have low-calorie pet food?"
       ],
       "responses": [
         "For weight management, choose a high-protein, low-fat diet and ensure regular exercise.",
         "We offer specially formulated weight control food for both cats and dogs.",
-        "Reducing portion sizes and providing more physical activity can help your pet stay fit.",
-
-        "Для контроля веса выберите корм с высоким содержанием белка и низким содержанием жиров, а также регулярные физические нагрузки.",
-        "Мы предлагаем специализированную еду для контроля веса как для собак, так и для кошек.",
-        "Снижение порций и больше физических упражнений помогут вашему питомцу оставаться в форме."
+        "Reducing portion sizes and providing more physical activity can help your pet stay fit."
       ]
     },
     {
@@ -450,8 +271,277 @@
         "When should I switch my puppy to adult food?",
         "What is the best food for a teething puppy?",
         "How much should a kitten eat per day?",
-        "Do puppies need wet or dry food?",
+        "Do puppies need wet or dry food?"
+      ],
+      "responses": [
+        "Puppies and kittens need specially formulated food rich in protein, fats, and essential nutrients for growth.",
+        "Young pets should be fed small, frequent meals—typically 3-4 times a day.",
+        "It's important to provide DHA-rich food for brain development and strong bones.",
+        "Kittens should eat kitten-specific food until they are around 12 months old.",
+        "Puppies need calcium, phosphorus, and omega-3 fatty acids for proper development.",
+        "Avoid giving cow's milk to kittens, as it can cause digestive issues—special kitten milk is a better option.",
+        "A gradual transition to solid food should begin around 4 weeks for kittens and 3-4 weeks for puppies.",
+        "Puppies should switch to adult food around 12-18 months, depending on breed size.",
+        "Teething puppies benefit from soft chew toys and moistened dry food to ease discomfort.",
+        "Kittens typically need around 3-5 small meals per day to support their growth.",
+        "Puppies can eat both wet and dry food, but a combination can provide balanced nutrition."
+      ]
+    },
 
+    {
+      "tag": "приветствие",
+      "patterns": [
+        "Привет",
+        "Здравствуй",
+        "Как дела",
+        "Есть кто-нибудь?",
+        "Приветствую",
+        "Хорошего дня"
+      ],
+      "responses": [
+        "Привет :-)",
+        "Здравствуйте, спасибо за визит",
+        "Привет! Чем могу помочь?",
+        "Привет, как я могу помочь?"
+      ]
+    },
+    {
+      "tag": "прощание",
+      "patterns": ["Пока", "Увидимся", "До свидания"],
+      "responses": [
+        "Увидимся, спасибо за визит",
+        "Хорошего дня",
+        "Пока! Возвращайтесь скоро"
+      ]
+    },
+    {
+      "tag": "благодарение",
+      "patterns": [
+        "Спасибо",
+        "Благодарю",
+        "Это полезно",
+        "Большое спасибо!"
+      ],
+      "responses": [
+        "Рад был помочь!",
+        "Всегда рад!",
+        "Пожалуйста!"
+      ]
+    },
+    {
+      "tag": "предметы",
+      "patterns": [
+        "Какие товары у вас есть?",
+        "What kinds of items are there?",
+        "What do you sell?"
+      ],
+      "responses": [
+        "Мы продаем кофе и чай.",
+        "У нас есть кофе и чай."
+      ]
+    },
+    {
+      "tag": "платежи",
+      "patterns": [
+        "Вы принимаете кредитные карты?",
+        "Вы принимаете Mastercard?",
+        "Могу ли я заплатить через PayPal?",
+        "Только наличные?"
+      ],
+      "responses": [
+        "Мы принимаем VISA, Mastercard и PayPal.",
+        "Мы принимаем большинство крупных кредитных карт и PayPal."
+      ]
+    },
+    {
+      "tag": "доставка",
+      "patterns": [
+        "Сколько времени занимает доставка?",
+        "Как долго длится доставка?",
+        "Когда я получу свою доставку?"
+      ],
+      "responses": [
+        "Доставка занимает от 2 до 4 дней.",
+        "Доставка занимает от 2 до 4 дней."
+      ]
+    },
+    {
+      "tag": "забавный",
+      "patterns": [
+        "Расскажи анекдот!",
+        "Расскажи что-нибудь смешное!",
+        "Знаешь анекдот?"
+      ],
+      "responses": [
+        "Почему хипстер обжег язык? Он выпил кофе до того, как он остыл.",
+        "Что сказал бизон, когда его сын уехал в колледж? Бизон."
+      ]
+    },
+
+    {
+      "tag": "болезни",
+      "patterns": [
+        "Мой питомец болен",
+        "У моего питомца насморк.",
+        "У собаки/кошки понос.",
+        "Мой питомец не ест.",
+        "Что делать, если питомец болен?"
+      ],
+      "responses": [
+        "Извините, что ваш питомец заболел. Лучше всего обратиться к ветеринару, чтобы установить диагноз и назначить лечение.",
+        "Если питомец не ест, это может быть признаком болезни. Рекомендуется показать его врачу.",
+        "Для лечения насморка у животного важно следить за его состоянием и при необходимости проконсультироваться с ветеринаром.",
+        "Обратите внимание на поведение питомца. Если симптомы сохраняются, лучшим решением будет визит к врачу.",
+        "Важно следить за состоянием питомца и, если нужно, сразу обратиться к ветеринару для консультации."
+      ]
+    },
+    {
+      "tag": "симптомы",
+      "patterns": [
+        "Какие симптомы простуды у питомца?",
+        "Как понять, что у питомца инфекция?",
+        "Мой питомец вялый, что это может быть?",
+        "Как понять, что у питомца болит живот?"
+      ],
+      "responses": [
+        "Симптомы простуды у питомцев могут включать чихание, насморк и кашель. У кошек и собак могут быть и другие признаки, такие как снижение активности и потеря аппетита.",
+        "Если питомец вялый и не ест, это может быть признаком инфекции или других заболеваний. Лучше обратиться к ветеринару.",
+        "У питомцев с больным животом могут быть симптомы, как понос, рвота, отказ от еды или болезненные реакции при прикосновении к животу. В таких случаях визит к врачу необходим.",
+        "Вялость, потеря аппетита и повышение температуры — это признаки того, что питомец может быть болен. Важно обратиться к врачу для постановки диагноза."
+      ]
+    },
+    {
+      "tag": "профилактика",
+      "patterns": [
+        "Как предотвратить болезни у питомца?",
+        "Что делать, чтобы питомец не заболел?",
+        "Как защитить питомца от инфекций?"
+      ],
+      "responses": [
+        "Для предотвращения заболеваний у питомца важно регулярно посещать ветеринара, проводить вакцинацию и следить за его состоянием.",
+        "Правильное питание, чистота в доме и регулярные прогулки на свежем воздухе могут помочь предотвратить болезни.",
+        "Чтобы защитить питомца от инфекций, важно соблюдать гигиену, избегать контакта с больными животными и следить за состоянием здоровья питомца.",
+        "Вакцинация — ключевая мера профилактики для большинства заболеваний у животных."
+      ]
+    },
+    {
+      "tag": "игрушки",
+      "patterns": [
+        "Какие игрушки для питомцев есть?",
+        "Какие виды игрушек для питомцев есть?",
+        "У вас есть игрушки для собак?",
+        "У вас есть игрушки для кошек?",
+        "Что вы продаете для питомцев?"
+      ],
+      "responses": [
+        "У нас есть игрушки для собак: жевательные, пищалки, мячики и интерактивные игрушки. Для кошек у нас есть перьевые палочки, игрушки с кошачьей мятой и когтеточки.",
+        "o В нашем магазине широкий выбор игрушек для собак, кошек и даже мелких животных, таких как кролики или хомяки."
+      ]
+    },
+    {
+      "tag": "материалы",
+      "patterns": [
+        "Из чего сделаны ваши игрушки?",
+        "Безопасны ли игрушки для моего питомца?",
+        "У вас есть нетоксичные игрушки?"
+      ],
+      "responses": [
+        "Наши игрушки сделаны из безопасных, нетоксичных материалов и предназначены для безопасности питомцев.",
+        "Да, все наши игрушки безопасны и долговечны, они изготовлены из высококачественных материалов для обеспечения безопасности вашего питомца."
+      ]
+    },
+    {
+      "tag": "доставка",
+      "patterns": [
+        "Сколько времени занимает доставка?",
+        "Вы отправляете игрушки?",
+        "Как скоро я получу мой заказ?"
+      ],
+      "responses": [
+        "Доставка обычно занимает от 2 до 4 дней. Мы предлагаем бесплатную доставку на заказы от 50 долларов.",
+        "Да, мы отправляем игрушки по всей стране, доставка занимает от 2 до 4 рабочих дней."
+      ]
+    },
+    {
+      "tag": "шутки",
+      "patterns": [
+        "Расскажи шутку про питомцев",
+        "Знаешь шутку про животных?",
+        "Рассмеши меня"
+      ],
+      "responses": [
+        "Почему кошки не играют в покер в джунглях? Слишком много читеров!",
+        "Как называется собака, которая умеет делать фокусы? Лабрадоракадабра!"
+      ]
+    },
+    {
+      "tag": "варианты_еды",
+      "patterns": [
+        "Какую еду для собак вы продаете?",
+        "Какую еду вы продаете для кошек?",
+        "У вас есть еда без злаков?",
+        "Какие виды еды для питомцев у вас есть?"
+      ],
+      "responses": [
+        "Мы предлагаем сухие и влажные корма, беззлаковые варианты и специальные диеты для собак и кошек.",
+        "В нашем ассортименте есть премиальные, холистические и ветеринарные диеты для взрослых питомцев."
+      ]
+    },
+    {
+      "tag": "рекоммендации",
+      "patterns": [
+        "Какую еду вы порекомендуете для взрослых кошек?",
+        "Можете порекомендовать хороший корм для моей собаки?",
+        "Какой корм лучше для крупных пород собак?",
+        "У вас есть еда для чувствительных желудков?"
+      ],
+      "responses": [
+        "Для взрослых кошек мы рекомендуем корм с высоким содержанием белка, без злаков, с натуральными ингредиентами.",
+        "Корм для крупных пород собак должен включать поддерживающие суставы компоненты, такие как глюкозамин и хондроитин.",
+        "Для питомцев с чувствительными желудками мы предлагаем гипоаллергенные или ограниченные по составу диеты."
+      ]
+    },
+    {
+      "tag": "ингридиенты",
+      "patterns": [
+        "Какие ингредиенты в вашей корме для питомцев?",
+        "У вас есть корм с настоящим мясом?",
+        "Ваш корм без искусственных добавок?"
+      ],
+      "responses": [
+        "В нашем корме для питомцев есть настоящее мясо, овощи и важные питательные вещества без искусственных консервантов.",
+        "Да, мы предлагаем высококачественный корм с настоящим куриным, говяжьим, лососевым и ягнячим мясом."
+      ]
+    },
+    {
+      "tag": "график_кормления",
+      "patterns": [
+        "Как часто нужно кормить мою собаку?",
+        "Какой режим питания для кошек лучший?",
+        "Нужно ли кормить питомца дважды в день?"
+      ],
+      "responses": [
+        "Взрослых собак нужно кормить дважды в день, а кошки могут есть небольшими порциями в течение дня.",
+        "Лучше придерживаться постоянного расписания кормления для здоровья питомца.",
+        "Для специфических диетических потребностей лучше проконсультироваться с ветеринаром."
+      ]
+    },
+    {
+      "tag": "управление_весом",
+      "patterns": [
+        "Как помочь моей собаке похудеть?",
+        "Какой корм лучше для собак с лишним весом?",
+        "У вас есть низкокалорийная еда для питомцев?"
+      ],
+      "responses": [
+        "Для контроля веса выберите корм с высоким содержанием белка и низким содержанием жиров, а также регулярные физические нагрузки.",
+        "Мы предлагаем специализированную еду для контроля веса как для собак, так и для кошек.",
+        "Снижение порций и больше физических упражнений помогут вашему питомцу оставаться в форме."
+      ]
+    },
+    {
+      "tag": "питание_щенка_котенка",
+      "patterns": [
         "Что кормить щенка?",
         "Какая еда лучше для котенков?",
         "Как часто нужно кормить молодого питомца?",
@@ -467,18 +557,6 @@
         "Могут ли щенки есть влажный или сухой корм?"
       ],
       "responses": [
-        "Puppies and kittens need specially formulated food rich in protein, fats, and essential nutrients for growth.",
-        "Young pets should be fed small, frequent meals—typically 3-4 times a day.",
-        "It's important to provide DHA-rich food for brain development and strong bones.",
-        "Kittens should eat kitten-specific food until they are around 12 months old.",
-        "Puppies need calcium, phosphorus, and omega-3 fatty acids for proper development.",
-        "Avoid giving cow's milk to kittens, as it can cause digestive issues—special kitten milk is a better option.",
-        "A gradual transition to solid food should begin around 4 weeks for kittens and 3-4 weeks for puppies.",
-        "Puppies should switch to adult food around 12-18 months, depending on breed size.",
-        "Teething puppies benefit from soft chew toys and moistened dry food to ease discomfort.",
-        "Kittens typically need around 3-5 small meals per day to support their growth.",
-        "Puppies can eat both wet and dry food, but a combination can provide balanced nutrition.",
-
         "Щенки и котенки нуждаются в специальном корме, богатом белками, жирами и необходимыми питательными веществами для роста.",
         "Молодых питомцев нужно кормить маленькими порциями несколько раз в день (обычно 3-4 раза).",
         "Важно давать корм с DHA для развития мозга и крепких костей.",

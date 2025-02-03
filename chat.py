@@ -10,7 +10,7 @@ from telegram.ext.filters import TEXT
 # Load the model and data
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open('intents.json', 'r') as f:
+with open('intents.json', 'r', encoding='utf-8') as f:
     intents = json.load(f)
 
 FILE = "data.pth"
