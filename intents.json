@@ -80,6 +80,7 @@
         "What did the buffalo say when his son left for college? Bison."
       ]
     },
+
     {
       "tag": "illness",
       "patterns": [
@@ -122,6 +123,168 @@
         "To prevent getting sick, wash your hands regularly, avoid close contact with sick people, and get enough rest.",
         "Eating healthy foods, staying hydrated, and maintaining good hygiene are key to preventing illness.",
         "The best way to prevent the flu is by getting vaccinated and practicing good hygiene, like frequent hand washing and avoiding touching your face."
+      ]
+    },
+
+    {
+      "tag": "toys_available",
+      "patterns": [
+        "What toys do you have?",
+        "What kinds of toys are there?",
+        "Do you sell dog toys?",
+        "Do you have cat toys?",
+        "What do you sell for pets?"
+      ],
+      "responses": [
+        "We have chew toys, squeaky toys, balls, and interactive toys for dogs. For cats, we have feather wands, catnip toys, and scratching posts.",
+        "Our store offers a wide variety of toys for dogs, cats, and even small animals like rabbits or hamsters."
+      ]
+    },
+    {
+      "tag": "recommendation",
+      "patterns": [
+        "What toy do you recommend for a puppy?",
+        "Can you suggest a toy for my cat?",
+        "What is the best toy for small dogs?",
+        "Do you have toys for energetic pets?"
+      ],
+      "responses": [
+        "For puppies, we recommend soft chew toys or teething rings. For energetic cats, try interactive feather wands or catnip balls.",
+        "Energetic pets love toys that challenge them, like puzzle toys or fetch balls.",
+        "For small dogs, squeaky toys or soft plush toys are a great choice."
+      ]
+    },
+    {
+      "tag": "materials",
+      "patterns": [
+        "What are the toys made of?",
+        "Are the toys safe for my pet?",
+        "Do you have non-toxic toys?"
+      ],
+      "responses": [
+        "Our toys are made from safe, non-toxic materials and are designed to be pet-friendly.",
+        "Yes, all our toys are safe and durable, made with high-quality materials to ensure your pet's safety."
+      ]
+    },
+    {
+      "tag": "delivery",
+      "patterns": [
+        "How long does delivery take?",
+        "Do you ship toys?",
+        "How soon can I get my order?"
+      ],
+      "responses": [
+        "Delivery typically takes 2-4 days. We offer free shipping on orders over $50.",
+        "Yes, we ship toys nationwide, and delivery takes 2-4 business days."
+      ]
+    },
+    {
+      "tag": "funny",
+      "patterns": [
+        "Tell me a joke about pets",
+        "Do you know a joke about animals?",
+        "Make me laugh"
+      ],
+      "responses": [
+        "Why don’t cats play poker in the jungle? Too many cheetahs!",
+        "What do you call a dog that can do magic tricks? A labracadabrador!"
+      ]
+    },
+
+    {
+      "tag": "food_options",
+      "patterns": [
+        "What food do you have for dogs?",
+        "What kind of food do you sell for cats?",
+        "Do you have grain-free food?",
+        "What types of pet food do you offer?"
+      ],
+      "responses": [
+        "We offer dry and wet food, grain-free options, and special diets for dogs and cats.",
+        "Our selection includes premium, holistic, and veterinary diets for adult pets."
+      ]
+    },
+    {
+      "tag": "recommendation",
+      "patterns": [
+        "What food do you recommend for adult cats?",
+        "Can you suggest a good diet for my dog?",
+        "What is the best food for large breed dogs?",
+        "Do you have food for sensitive stomachs?"
+      ],
+      "responses": [
+        "For adult cats, we recommend high-protein, grain-free food with natural ingredients.",
+        "Large breed dogs benefit from joint-supporting diets with glucosamine and chondroitin.",
+        "For pets with sensitive stomachs, we suggest hypoallergenic or limited-ingredient diets."
+      ]
+    },
+    {
+      "tag": "ingredients",
+      "patterns": [
+        "What are the ingredients in your pet food?",
+        "Do you have food with real meat?",
+        "Is your food free from artificial additives?"
+      ],
+      "responses": [
+        "Our pet food contains real meat, vegetables, and essential nutrients with no artificial preservatives.",
+        "Yes, we offer high-quality food with real chicken, beef, salmon, and lamb."
+      ]
+    },
+    {
+      "tag": "feeding_schedule",
+      "patterns": [
+        "How often should I feed my dog?",
+        "What is the best feeding schedule for cats?",
+        "Should I feed my pet twice a day?"
+      ],
+      "responses": [
+        "Adult dogs should be fed twice a day, while cats can eat small meals throughout the day.",
+        "It's best to maintain a consistent feeding schedule to keep your pet healthy.",
+        "For specific dietary needs, consult a veterinarian."
+      ]
+    },
+    {
+      "tag": "weight_management",
+      "patterns": [
+        "How can I help my dog lose weight?",
+        "What food is best for overweight cats?",
+        "Do you have low-calorie pet food?"
+      ],
+      "responses": [
+        "For weight management, choose a high-protein, low-fat diet and ensure regular exercise.",
+        "We offer specially formulated weight control food for both cats and dogs.",
+        "Reducing portion sizes and providing more physical activity can help your pet stay fit."
+      ]
+    },
+    {
+      "tag": "puppy_kitten_nutrition",
+      "patterns": [
+        "What should I feed my puppy?",
+        "What food is best for kittens?",
+        "How often should I feed a young pet?",
+        "Do puppies and kittens need special food?",
+        "Can I give regular adult food to my kitten?",
+        "What vitamins do puppies need?",
+        "How long should a puppy eat special food?",
+        "Do kittens need milk?",
+        "How do I transition my kitten to solid food?",
+        "When should I switch my puppy to adult food?",
+        "What is the best food for a teething puppy?",
+        "How much should a kitten eat per day?",
+        "Do puppies need wet or dry food?"
+      ],
+      "responses": [
+        "Puppies and kittens need specially formulated food rich in protein, fats, and essential nutrients for growth.",
+        "Young pets should be fed small, frequent meals—typically 3-4 times a day.",
+        "It's important to provide DHA-rich food for brain development and strong bones.",
+        "Kittens should eat kitten-specific food until they are around 12 months old.",
+        "Puppies need calcium, phosphorus, and omega-3 fatty acids for proper development.",
+        "Avoid giving cow's milk to kittens, as it can cause digestive issues—special kitten milk is a better option.",
+        "A gradual transition to solid food should begin around 4 weeks for kittens and 3-4 weeks for puppies.",
+        "Puppies should switch to adult food around 12-18 months, depending on breed size.",
+        "Teething puppies benefit from soft chew toys and moistened dry food to ease discomfort.",
+        "Kittens typically need around 3-5 small meals per day to support their growth.",
+        "Puppies can eat both wet and dry food, but a combination can provide balanced nutrition."
       ]
     }
   ]
