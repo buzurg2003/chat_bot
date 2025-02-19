@@ -1,17 +1,33 @@
-import nltk
-import numpy as np
+# nltk_utils.py содержит вспомогательные функции для обработки текста.
+# Этот модуль подготавливает текст для обучения нейросети:
+# ✔ Разбивает текст (tokenize).
+# ✔ Приводит слова к корню (stem).
+# ✔ Преобразует в вектор (bag_of_words).
+
+#Импорт библиотек
+import nltk # библиотека для обработки естественного языка.
+import numpy as np # используется для работы с массивами (в bag_of_words()).
 
 # nltk.download('punkt')
 # nltk.download('punkt_tab')
+
+# Инициализация стеммера
+# PorterStemmer — инструмент для стемминга (приведения слов к корню): (stemmer.stem("running") → "run", stemmer.stem("flies") → "fli".)
 from nltk.stem.porter import PorterStemmer
 stemmer = PorterStemmer()
-
+# Функция токенизации
+# Разбивает строку на слова: tokenize("Hello, how are you?") → ["Hello", ",", "how", "are", "you", "?"].
 def tokenize(sentence):
     return nltk.word_tokenize(sentence)
 
+# Функция стемминга
+# Приводит слово к корню (без приведения к нормальной форме): stem("Running") → "run", stem("Eats") → "eat".
 def stem(word):
     return stemmer.stem(word.lower())
 
+# Функция bag_of_words:
+# - Преобразует входное предложение в числовой вектор (numpy array).
+# - 1.0 означает, что слово есть в предложении, 0.0 — нет.
 def bag_of_words(tokenized_sentence, all_words):
     """
     sentence = ["hello", "how", "are", "you"]
