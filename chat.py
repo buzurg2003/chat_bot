@@ -107,21 +107,29 @@ request_counter = Counter()
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_input = update.message.text.lower()
-    intent_response = get_intent_response(user_input, intents)  # Добавил intents
 
+    # Проверка в intents.json
+    intent_response = get_intent_response(user_input, intents)
     if intent_response:
         await update.message.reply_text(intent_response)
-        return  # Если нашли ответ в intents.json, не идем дальше
+        return  # 🔥 Прерываем обработку
 
     print("🔎 Информация не найдена в intents.json, обращаемся к GPT...")
 
+    # Запрос к GPT
     response = chat_with_gpt(user_input)
 
+    # Проверка на лимит запросов
     if "Превышен лимит запросов" in response:
         await update.message.reply_text(response)
-        return  # Если лимит превышен, сразу выходим
+        return  # Если лимит превышен, сразу выходим (🔥 Прерываем обработку)
 
-    await update.message.reply_text(response)
+    if response:
+        await update.message.reply_text(response)
+        return  # 🔥 Прерываем обработку
+
+    # Удаляем все лишние проверки, чтобы не было второго ответа!
+    await update.message.reply_text(response) # Отправляем только один ответ
 
     if user_input == "quit":
         await update.message.reply_text("Goodbye!")
@@ -180,7 +188,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main():
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(MessageHandler(TEXT, handle_message))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
     print("Bot is running...")
     app.run_polling()
