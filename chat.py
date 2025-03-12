@@ -4,7 +4,6 @@ import torch
 import nltk
 import openai
 import os
-
 import time
 import datetime
 
@@ -23,28 +22,34 @@ nltk.download('wordnet')
 
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-
-# Глобальная переменная для хранения времени сброса лимита
-gpt_reset_time = None
+from telegram import BotCommand
 
 
+# API ключ для OpenAI
+api_key = "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"
+
+# Инициализация лемматизатора
+lemmatizer = WordNetLemmatizer()
+
+# Глобальная переменная для хранения счетчика вопросов
+request_counter = Counter()
+
+
+# Загрузка интентов
 def load_intents():
     with open("intents.json", "r", encoding="utf-8") as file:
         return json.load(file)
 
-def get_intent_response(user_input, intents):
-    for intent in intents["intents"]:
-        for pattern in intent["patterns"]:
-            if user_input.lower() in pattern.lower():
-                return intent["responses"][0]
-    return None
 
-api_key="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"
-
-import time
-import openai
+def save_intents(intents):
+    with open("intents.json", "w", encoding="utf-8") as file:
+        json.dump(intents, file, ensure_ascii=False, indent=4)
 
 
+intents = load_intents()
+
+
+# GPT-4o API вызов
 def chat_with_gpt(prompt):
     try:
         client = openai.OpenAI(api_key=api_key)
@@ -55,35 +60,20 @@ def chat_with_gpt(prompt):
         )
         return response.choices[0].message.content
     except openai.RateLimitError as e:
-        error_data = getattr(e, "body", {})
-        error_code = error_data.get("error", {}).get("code", "")
-
-        if error_code == "insufficient_quota":
-            return "Превышен лимит запросов. Пополните баланс или проверьте подписку OpenAI."
-
-        reset_time = error_data.get("x-ratelimit-reset")
-        if reset_time:
-            wait_time = int(reset_time) - int(time.time())
-            if wait_time > 0:
-                return f"Превышен лимит запросов. Попробуйте снова через {wait_time} секунд."
-
-        return "Превышен лимит запросов. Попробуйте позже или проверьте подписку OpenAI."
+        return "Превышен лимит запросов. Попробуйте позже."
 
 
-lemmatizer = WordNetLemmatizer()
-
+# Обработка текста
 def preprocess_text(text):
     tokens = nltk.word_tokenize(text.lower())
     tokens = [word for word in tokens if word.isalnum()]
     tokens = [word for word in tokens if word not in stopwords.words("russian")]
     tokens = [lemmatizer.lemmatize(word) for word in tokens]
-    pos_tags = nltk.pos_tag(tokens)
-    return [word for word, tag in pos_tags]
+    return tokens
 
+
+# Загрузка модели
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
-with open('intents.json', 'r', encoding='utf-8') as f:
-    intents = json.load(f)
 
 FILE = "data.pth"
 data = torch.load(FILE)
@@ -99,42 +89,33 @@ model = NeuralNet(input_size, hidden_size, output_size).to(device)
 model.load_state_dict(model_state)
 model.eval()
 
-bot_name = "Pet"
+# Telegram bot token
 TOKEN = "7999516169:AAEKUaq1we5S9vl4AHYvzazzLTJIx971_Nc"
 
-request_counter = Counter()
+
+# 🔹 Обработчик кнопки "Связаться с ветеринаром"
+async def handle_contact_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    username = "buzurg_2003"
+    keyboard = [[InlineKeyboardButton("Перейти в чат", url=f"tg://resolve?domain={username}")]]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    await update.message.reply_text("Свяжитесь с ветеринаром, нажав кнопку ниже:", reply_markup=reply_markup)
 
 
+# 🔹 Обработчик кнопки "Частые вопросы"
+async def handle_faq_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    most_common = request_counter.most_common(5)
+    if most_common:
+        common_text = "\n".join([f"🔹 {q[0]} ({q[1]} раз)" for q in most_common])
+        await update.message.reply_text(f"📌 Часто задаваемые вопросы:\n{common_text}")
+    else:
+        await update.message.reply_text("Пока нет часто задаваемых вопросов.")
+
+
+# 🔹 Обработчик сообщений
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_input = update.message.text.lower()
 
-    # Проверка в intents.json
-    intent_response = get_intent_response(user_input, intents)
-    if intent_response:
-        await update.message.reply_text(intent_response)
-        return  # 🔥 Прерываем обработку
-
-    print("🔎 Информация не найдена в intents.json, обращаемся к GPT...")
-
-    # Запрос к GPT
-    response = chat_with_gpt(user_input)
-
-    # Проверка на лимит запросов
-    if "Превышен лимит запросов" in response:
-        await update.message.reply_text(response)
-        return  # Если лимит превышен, сразу выходим (🔥 Прерываем обработку)
-
-    if response:
-        await update.message.reply_text(response)
-        return  # 🔥 Прерываем обработку
-
-    # Удаляем все лишние проверки, чтобы не было второго ответа!
-    await update.message.reply_text(response) # Отправляем только один ответ
-
-    if user_input == "quit":
-        await update.message.reply_text("Goodbye!")
-        return
-
+    # 🛑 Сначала проверяем, нажал ли пользователь кнопку
     if user_input == "частые вопросы":
         await handle_faq_button(update, context)
         return
@@ -142,59 +123,78 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await handle_contact_button(update, context)
         return
 
-    request_counter[user_input] += 1
+    # 🔍 Проверяем intents.json
+    for intent in intents["intents"]:
+        if user_input in [pattern.lower() for pattern in intent["patterns"]]:
+            await update.message.reply_text(random.choice(intent["responses"]))
+            return
 
-    normalized_text = preprocess_text(user_input)
-    X = bag_of_words(normalized_text, all_words)
-    X = X.reshape(1, X.shape[0])
-    X = torch.from_numpy(X)
+    print("🔎 Информация не найдена в intents.json, обращаемся к GPT...")
 
-    output = model(X)
-    _, predicted = torch.max(output, dim=1)
-    tag = tags[predicted.item()]
+    # 🤖 Запрос к GPT
+    response = chat_with_gpt(user_input)
 
-    probs = torch.softmax(output, dim=1)
-    prob = probs[0][predicted.item()]
+    # Проверка на лимит запросов
+    if "Превышен лимит запросов" in response:
+        await update.message.reply_text(response)
+        return
 
-    if prob.item() > 0.75:
-        for intent in intents["intents"]:
-            if tag == intent["tag"]:
-                response = random.choice(intent["responses"])
-                await update.message.reply_text(response)
-                return
-    else:
-        await update.message.reply_text("Извините, я не понимаю...")
+    if response:
+        await update.message.reply_text(response)
+
+        # Сохранение нового вопроса и ответа в intents.json
+        intents["intents"].append({
+            "tag": user_input,
+            "patterns": [user_input],
+            "responses": [response]
+        })
+        save_intents(intents)
+        return
+
+    # Если ничего не найдено
+    await update.message.reply_text("Извините, я не понимаю...")
 
 
-async def handle_contact_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    username = "buzurg_2003"
-    keyboard = [[InlineKeyboardButton("Перейти в чат", url=f"tg://resolve?domain={username}")]]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text("Свяжитесь с ветеринаром, нажав кнопку ниже:", reply_markup=reply_markup)
-
-async def handle_faq_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    most_common = request_counter.most_common(5)
-    if most_common:
-        common_text = "\n".join([f"{q[0]} ({q[1]} раз)" for q in most_common])
-        await update.message.reply_text(f"📌 Часто задаваемые вопросы:\n{common_text}")
-    else:
-        await update.message.reply_text("Пока нет часто задаваемых вопросов.")
-
+# 🔹 Обработчик команды /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [["Частые вопросы", "Связаться с ветеринаром"]]
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=False)
-    await update.message.reply_text("Hello! I'm Pet. How can I help you today?", reply_markup=reply_markup)
+    await update.message.reply_text("Привет! Я бот Pet. Чем могу помочь?", reply_markup=reply_markup)
 
+# 🔹 Обработчик команды /help
+async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    help_text = (
+        "🚀 Доступные команды:\n"
+        "/start - Перезапустить бота\n"
+        "/help - Показать список команд\n"
+        "/faq - Частые вопросы\n"
+        "/contact - Связаться с ветеринаром\n"
+        "Вы также можете написать мне сообщение, и я постараюсь помочь! 😊"
+    )
+    await update.message.reply_text(help_text)
+
+async def set_bot_commands(application):
+    commands = [
+        BotCommand("start", "Перезапустить бота"),
+        BotCommand("help", "Список команд и помощь"),
+        BotCommand("faq", "Частые вопросы"),
+        BotCommand("contact", "Связаться с ветеринаром")
+    ]
+    await application.bot.set_my_commands(commands)
+
+# 🔹 Главная функция запуска бота
 def main():
     app = ApplicationBuilder().token(TOKEN).build()
+
     app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("help", help_command))
+    app.add_handler(CommandHandler("faq", handle_faq_button))
+    app.add_handler(CommandHandler("contact", handle_contact_button))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-    print("Bot is running...")
+
+    print("🤖 Бот запущен...")
     app.run_polling()
+
 
 if __name__ == "__main__":
     main()
-
-# ! Google AI API: https://aistudio.google.com/apikey
-# ! Open AI: https://platform.openai.com/usage
-# ! Platform Open AI: https://platform.openai.com/docs/overview
