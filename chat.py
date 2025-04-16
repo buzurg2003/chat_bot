@@ -25,6 +25,9 @@ from nltk.stem import WordNetLemmatizer
 from telegram import BotCommand
 
 import sqlite3
+import firebase_admin
+from firebase_admin import credentials, db
+
 
 # API ключ для OpenAI
 api_key = "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"
@@ -35,17 +38,24 @@ lemmatizer = WordNetLemmatizer()
 # Глобальная переменная для хранения счетчика вопросов
 request_counter = Counter()
 
+# Подключение к Firebase
+cred = credentials.Certificate("serviceAccountKey.json")  # Загружаем ключ
+firebase_admin.initialize_app(cred, {
+    "databaseURL": "https://chat-bot-129ae-default-rtdb.firebaseio.com/"  # URL БД
+})
+
 # Загрузка интентов
+# Функция для загрузки интентов из Firebase
 def load_intents():
-    with open("intents.json", "r", encoding="utf-8") as file:
-        return json.load(file)
+    ref = db.reference("intents")  # Получаем данные из узла "intents"
+    return ref.get() or {}  # Если данных нет, возвращаем пустой словарь
 
-
+# Функция для сохранения интентов в Firebase
 def save_intents(intents):
-    with open("intents.json", "w", encoding="utf-8") as file:
-        json.dump(intents, file, ensure_ascii=False, indent=4)
+    ref = db.reference("intents")
+    ref.set(intents)  # Полностью заменяем старые данные
 
-
+# Загружаем данные из Firebase
 intents = load_intents()
 
 # Функция сохранения сообщений в БД
@@ -56,6 +66,11 @@ def save_message(user_id, role, content):
     cursor.execute("INSERT INTO history (user_id, role, content) VALUES (?, ?, ?)", (user_id, role, content))
     conn.commit()
     conn.close()
+
+def save_to_json(intents):
+    with open("intents.json", "w", encoding="utf-8") as f:
+        json.dump({"intents": intents}, f, ensure_ascii=False, indent=4)
+
 
 # Функция получения истории диалога
 def get_history(user_id):
@@ -160,7 +175,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     # 🔍 Проверяем intents.json
-    for intent in intents["intents"]:
+    for intent in intents:
         if user_input in [pattern.lower() for pattern in intent["patterns"]]:
             response = random.choice(intent["responses"])
             context.user_data["history"].append({"role": "assistant", "content": response})
@@ -182,12 +197,13 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(response)
 
         # Сохранение нового вопроса и ответа в intents.json
-        intents["intents"].append({
+        intents.append({
             "tag": user_input,
             "patterns": [user_input],
             "responses": [response]
         })
         save_intents(intents)
+        save_to_json(intents)
         return
 
     # Если ничего не найдено
