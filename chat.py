@@ -24,6 +24,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from telegram import BotCommand
 
+import sqlite3
 
 # API ключ для OpenAI
 api_key = "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"
@@ -33,7 +34,6 @@ lemmatizer = WordNetLemmatizer()
 
 # Глобальная переменная для хранения счетчика вопросов
 request_counter = Counter()
-
 
 # Загрузка интентов
 def load_intents():
@@ -48,6 +48,24 @@ def save_intents(intents):
 
 intents = load_intents()
 
+# Функция сохранения сообщений в БД
+def save_message(user_id, role, content):
+    conn = sqlite3.connect("chat_history.db")
+    cursor = conn.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS history (user_id INTEGER, role TEXT, content TEXT)")
+    cursor.execute("INSERT INTO history (user_id, role, content) VALUES (?, ?, ?)", (user_id, role, content))
+    conn.commit()
+    conn.close()
+
+# Функция получения истории диалога
+def get_history(user_id):
+    conn = sqlite3.connect("chat_history.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT role, content FROM history WHERE user_id=? ORDER BY rowid DESC LIMIT 5", (user_id,))
+    history = [{"role": row[0], "content": row[1]} for row in cursor.fetchall()]
+    conn.close()
+    return history[::-1]  # Возвращаем в правильном порядке
+
 
 # GPT-4o API вызов
 def chat_with_gpt(prompt):
@@ -55,7 +73,7 @@ def chat_with_gpt(prompt):
         client = openai.OpenAI(api_key=api_key)
         response = client.chat.completions.create(
             model="gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt}],
+            messages=prompt[-5:],  # Отправляем только последние 5 сообщений,
             max_tokens=100
         )
         return response.choices[0].message.content
@@ -103,17 +121,35 @@ async def handle_contact_button(update: Update, context: ContextTypes.DEFAULT_TY
 
 # 🔹 Обработчик кнопки "Частые вопросы"
 async def handle_faq_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    most_common = request_counter.most_common(5)
-    if most_common:
-        common_text = "\n".join([f"🔹 {q[0]} ({q[1]} раз)" for q in most_common])
-        await update.message.reply_text(f"📌 Часто задаваемые вопросы:\n{common_text}")
-    else:
+    if not request_counter:
         await update.message.reply_text("Пока нет часто задаваемых вопросов.")
+        return
+
+    # Фильтруем вопросы, исключая "частые вопросы"
+    most_common = [q for q in request_counter.most_common(5) if q[0] != "частые вопросы"]
+
+    if not most_common:
+        await update.message.reply_text("Пока нет часто задаваемых вопросов.")
+        return
+
+    common_text = "\n".join([f"🔹 {q[0]} ({q[1]} раз)" for q in most_common])
+    await update.message.reply_text(f"📌 Часто задаваемые вопросы:\n{common_text}")
 
 
 # 🔹 Обработчик сообщений
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.message.chat_id
     user_input = update.message.text.lower()
+
+    # Инициализация истории, если её нет
+    if "history" not in context.user_data:
+        context.user_data["history"] = []
+
+    # Добавляем новое сообщение в историю
+    context.user_data["history"].append({"role": "user", "content": user_input})
+
+    # 🛑 Запоминаем частые вопросы
+    request_counter[user_input] += 1
 
     # 🛑 Сначала проверяем, нажал ли пользователь кнопку
     if user_input == "частые вопросы":
@@ -126,13 +162,16 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # 🔍 Проверяем intents.json
     for intent in intents["intents"]:
         if user_input in [pattern.lower() for pattern in intent["patterns"]]:
-            await update.message.reply_text(random.choice(intent["responses"]))
+            response = random.choice(intent["responses"])
+            context.user_data["history"].append({"role": "assistant", "content": response})
+            await update.message.reply_text(response)
             return
 
     print("🔎 Информация не найдена в intents.json, обращаемся к GPT...")
 
     # 🤖 Запрос к GPT
-    response = chat_with_gpt(user_input)
+    response = chat_with_gpt(context.user_data["history"])
+    context.user_data["history"].append({"role": "assistant", "content": response})
 
     # Проверка на лимит запросов
     if "Превышен лимит запросов" in response:
@@ -194,7 +233,6 @@ def main():
 
     print("🤖 Бот запущен...")
     app.run_polling()
-
 
 if __name__ == "__main__":
     main()
